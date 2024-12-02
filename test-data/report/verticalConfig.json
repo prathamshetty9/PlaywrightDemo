@@ -1,0 +1,10 @@
+{
+    "lamda-test": {
+      "sharedParam": {
+        "LOGO": ":lamdatest:"
+      },
+      "uat": {
+        "ENV_URL": "https://ecommerce-playground.lambdatest.io/"
+      }
+    }
+  }

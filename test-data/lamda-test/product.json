@@ -1,0 +1,29 @@
+{
+    "name": {
+        "productName1": "iPhone",
+        "productName2": "iPod",
+        "productName3": "Samsung"
+    },
+    "pincode": {
+        "pincode1": "560076",
+        "pincode2": "122002",
+        "pincode3": "400054"
+    },
+    "address": {
+        "fullName": "ZOMATO FINANCIAL SERVICES LIMITED",
+        "flatBuildingNo": "123",
+        "addressLine": "ZOMATO FINANCIAL SERVICES LIMITED",
+        "locality": "Bangalore",
+        "pinCode": "201301",
+        "phone": "9999999999"
+    },
+    "accountDetails": {
+        "firstName": "Sam",
+        "lastName": "Smith",
+        "dateOfBirth": "12/03/2001"
+    },
+    "quantity" : {
+        "singleQuantity":"1",
+        "multipleQuantity":"2"
+    }
+}
