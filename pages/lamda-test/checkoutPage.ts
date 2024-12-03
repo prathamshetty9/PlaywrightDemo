@@ -61,6 +61,7 @@ export default class checkoutPage {
     await this.agreeBtn.scrollIntoViewIfNeeded();
     await this.agreeBtn.click({ force: true });
     await this.continueButton.click({ force: true });
+    await this.continueButton.scrollIntoViewIfNeeded();
     await this.continueButton.click();
   }
 

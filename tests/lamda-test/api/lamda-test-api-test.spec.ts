@@ -9,9 +9,7 @@ test('API validation for adding product to cart', async () => {
     'https://ecommerce-playground.lambdatest.io/index.php?route=checkout/cart/add', {
       headers: {
         'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Language': 'en-US,en;q=0.9',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Origin': 'https://ecommerce-playground.lambdatest.io',
       },
       data: 'quantity=1&product_id=36', // Payload
     }
