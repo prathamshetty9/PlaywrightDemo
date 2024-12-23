@@ -17,7 +17,7 @@ test("checks for XSS vulnerability. @LAMDA", async ({
   });
 
 
-  test("CSRF Vulneribility Application.", async () => {
+  test("CSRF Vulneribility Application. @LAMDA", async () => {
 
     const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 
@@ -59,7 +59,7 @@ test("checks for XSS vulnerability. @LAMDA", async ({
 });
 
 
-test("SQL Injection Application.", async () => {
+test("SQL Injection Application. @LAMDA", async () => {
 
   const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 

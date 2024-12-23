@@ -3,7 +3,7 @@ import test from "../../../pages/lamda-test/lamdaBasePage";
 
 
 
-test("Browser Context Application.", async ({ baseURL }) => {
+test("Browser Context Application. @LAMDA", async ({ baseURL }) => {
 
     const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 

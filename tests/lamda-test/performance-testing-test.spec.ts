@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import test from "../../pages/lamda-test/lamdaBasePage";
 
 
-test('Measure page load performance', async ({ page, loginPage ,homePage }) => {
+test('Measure page load performance @LAMDA', async ({ page, loginPage ,homePage }) => {
     const startTime = performance.now();
     await page.goto('https://ecommerce-playground.lambdatest.io/', { waitUntil: 'load' });
     const endTime = performance.now();
@@ -11,7 +11,7 @@ test('Measure page load performance', async ({ page, loginPage ,homePage }) => {
 });
 
 
-test('Measure and validate performance using Performance Timing API', async ({ page }) => {
+test('Measure and validate performance using Performance Timing API @LAMDA', async ({ page }) => {
     await page.goto('https://ecommerce-playground.lambdatest.io/', { waitUntil: 'load' });
 
     // Extract performance timing details

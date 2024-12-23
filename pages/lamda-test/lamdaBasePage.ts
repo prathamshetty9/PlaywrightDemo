@@ -6,7 +6,7 @@ import loginPage from "./loginPage";
 import checkoutPage from "./checkoutPage";
 import confirmOrderPage from "./confirmOrderPage";
 import plpPage from "./productListingPage";
-import "dotenv/config";
+// import "dotenv/config";
 
 // Utility functions
 const isHash = (entity: any) =>

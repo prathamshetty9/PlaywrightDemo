@@ -1,6 +1,6 @@
 import { test, expect, request } from '@playwright/test';
 
-test('API validation for adding product to cart', async () => {
+test('API validation for adding product to cart @LAMDA', async () => {
   // Create a new request context
   const requestContext = await request.newContext();
 
