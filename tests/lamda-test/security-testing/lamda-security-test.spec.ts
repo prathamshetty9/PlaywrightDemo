@@ -1,4 +1,4 @@
-import test from "../../pages/lamda-test/lamdaBasePage";
+import test from "../../../pages/lamda-test/lamdaBasePage";
 import { expect, Browser, chromium, Page, BrowserContext, Locator } from "@playwright/test";
 
 test("checks for XSS vulnerability. @LAMDA", async ({

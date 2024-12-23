@@ -1,7 +1,9 @@
-import { test, expect, Browser, chromium, Page, BrowserContext, Locator } from "@playwright/test";
+import { expect, Browser, chromium, Page, BrowserContext, Locator } from "@playwright/test";
+import test from "../../../pages/lamda-test/lamdaBasePage";
 
 
-test("Browser Context Application.", async () => {
+
+test("Browser Context Application.", async ({ baseURL }) => {
 
     const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 
@@ -14,7 +16,7 @@ test("Browser Context Application.", async () => {
     const page2:Page = await browserContext_2.newPage();
 
     //browser 1 
-    await page1.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login", {
+    await page1.goto(`${baseURL}`, {
         waitUntil: "domcontentloaded",
       });
     
@@ -27,7 +29,7 @@ test("Browser Context Application.", async () => {
      await loginBtn1.click();
 
     //browser 2
-    await page2.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login", {
+    await page2.goto(`${baseURL}`, {
       waitUntil: "domcontentloaded",
     });
   

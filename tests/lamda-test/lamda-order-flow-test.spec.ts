@@ -6,12 +6,12 @@ import { expect } from "@playwright/test";
 
 test.beforeEach(
   async ({ page, baseURL, loginPage, cartPage}) => {
-    await page.goto("https://ecommerce-playground.lambdatest.io/", {
+    await page.goto(`${baseURL}` , {
       waitUntil: "domcontentloaded",
     });
-  // await page
-  // .context()
-  // .addCookies([{ name: "x.test", value: "true", url: `${baseURL}` }]);
+  await page
+  .context()
+  .addCookies([{ name: "x.test", value: "true", url: `${baseURL}` }]);
   await loginPage.loginThroughEmailAndPassword(
     user.userCredentials.emailId,
     user.userCredentials.password
@@ -37,7 +37,7 @@ test("To verify Simple Order Journey. @LAMDA", async ({
 });
 
 
-test.only("To verify Sort option In PLP. @LAMDA", async ({
+test("To verify Sort option In PLP. @LAMDA", async ({
   homePage,
 }) => {
   await homePage.searchProduct(products.name.productName2);
