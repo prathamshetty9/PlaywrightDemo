@@ -3,7 +3,7 @@ import test from "../../../pages/lamda-test/lamdaBasePage";
 
 
 
-test("Browser Context Application. @LAMDA", async ({ baseURL }) => {
+test.only("Browser Context Application. @LAMDA", async () => {
 
     const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 
@@ -16,7 +16,7 @@ test("Browser Context Application. @LAMDA", async ({ baseURL }) => {
     const page2:Page = await browserContext_2.newPage();
 
     //browser 1 
-    await page1.goto(`${baseURL}`, {
+    await page1.goto(`https://naveenautomationlabs.com/opencart/index.php?route=account/login`, {
         waitUntil: "domcontentloaded",
       });
     
@@ -29,7 +29,7 @@ test("Browser Context Application. @LAMDA", async ({ baseURL }) => {
      await loginBtn1.click();
 
     //browser 2
-    await page2.goto(`${baseURL}`, {
+    await page2.goto(`https://naveenautomationlabs.com/opencart/index.php?route=account/login`, {
       waitUntil: "domcontentloaded",
     });
   
