@@ -44,6 +44,7 @@ test("checks for XSS vulnerability. @LAMDA", async ({
       );
 
       const responseBody = await response.json();
+      console.log('Response status:', response.status());
       console.log("CSRF Test Response ", responseBody);
 
       if( !responseBody.error){
@@ -67,6 +68,7 @@ test("SQL Injection Application. @LAMDA", async () => {
   const browserContext: BrowserContext = await browser.newContext();
   const page:Page = await browserContext.newPage();
 
+  try {
     const endpoint = 'https://reqres.in/api/comments';
     const sqlInjectionPayload = "' OR '1'='1'";
 
@@ -81,6 +83,8 @@ test("SQL Injection Application. @LAMDA", async () => {
 
     const responseBody = await response.json();
     console.log("SQL Injection Test Response ", responseBody);
+    console.log('Response status:', response.status());
+
 
     if(responseBody.error){
         throw new Error(' SQL Injection Vulneribility Test Failed ');
@@ -88,5 +92,9 @@ test("SQL Injection Application. @LAMDA", async () => {
       throw new Error(' Potential SQL Injection Vulneribility detected ');
     }
 
-  
+  }catch(error){
+    console.log(" API Execution Error", error);
+  }finally{
+    await browser.close();
+  }
 });
