@@ -12,7 +12,7 @@ const config: PlaywrightTestConfig = {
   },
   fullyParallel: false,
   reporter: [
-    ["html"],
+    ["html", { open: 'never' }],
     ["json", { outputFile: "../playwright-report/json-report.json" }],
     ["junit", { outputFile: "../playwright-report/junit-report.xml" }],
   ],
