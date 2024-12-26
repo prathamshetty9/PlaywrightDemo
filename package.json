@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "generate-report": "node config/playwright-report-config.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
