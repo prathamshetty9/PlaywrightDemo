@@ -10,22 +10,27 @@ let passedTests = 0;
 let failedTests = 0;
 let skippedTests = 0;
 
-// Calculate the number of passed, failed, and skipped tests
-results.suites.forEach(suite => {
-    suite.specs.forEach(spec => {
-        spec.tests.forEach(test => {
-            test.results.forEach(result => {
-                if (result.status === 'passed') {
-                    passedTests++;
-                } else if (result.status === 'failed') {
-                    failedTests++;
-                } else if (result.status === 'skipped') {
-                    skippedTests++;
-                }
+// Check if 'suites' exists in the JSON and is an array
+if (Array.isArray(results.suites)) {
+    results.suites.forEach(suite => {
+        suite.specs.forEach(spec => {
+            spec.tests.forEach(test => {
+                test.results.forEach(result => {
+                    if (result.status === 'passed') {
+                        passedTests++;
+                    } else if (result.status === 'failed') {
+                        failedTests++;
+                    } else if (result.status === 'skipped') {
+                        skippedTests++;
+                    }
+                });
             });
         });
     });
-});
+} else {
+    console.error("Error: 'suites' property is missing or not an array.");
+}
+
 
 
 // Generate HTML content
