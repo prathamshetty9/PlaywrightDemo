@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Read Playwright results JSON
-const resultsFilePath = path.resolve('playwright-report/json-report.json');
+const resultsFilePath = path.resolve('../playwright-report/json-report.json');
 const results = JSON.parse(fs.readFileSync(resultsFilePath, 'utf8'));
 
 // Initialize counters
