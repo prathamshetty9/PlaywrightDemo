@@ -11,11 +11,22 @@ let failedTests = 0;
 let skippedTests = 0;
 
 // Calculate the number of passed, failed, and skipped tests
-results.tests.forEach(test => {
-    if (test.status === 'passed') passedTests++;
-    if (test.status === 'failed') failedTests++;
-    if (test.status === 'skipped') skippedTests++;
+results.suites.forEach(suite => {
+    suite.specs.forEach(spec => {
+        spec.tests.forEach(test => {
+            test.results.forEach(result => {
+                if (result.status === 'passed') {
+                    passedTests++;
+                } else if (result.status === 'failed') {
+                    failedTests++;
+                } else if (result.status === 'skipped') {
+                    skippedTests++;
+                }
+            });
+        });
+    });
 });
+
 
 // Generate HTML content
 const htmlContent = `
@@ -56,5 +67,5 @@ const htmlContent = `
 `;
 
 // Save HTML file
-fs.writeFileSync('playwright-report-summary.html', htmlContent);
+fs.writeFileSync('playwright-report/playwright-report-summary.html', htmlContent);
 console.log('HTML report generated: playwright-report-summary.html');
