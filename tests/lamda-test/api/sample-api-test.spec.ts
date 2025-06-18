@@ -1,4 +1,6 @@
 import { test, expect, request } from '@playwright/test';
+const User = require('../../../pages/api/pojo/User.js');
+const userApi = require('../../../pages/api/base/basePOSTApi.js'); 
 
 test('Sample GET API validation @LAMDA', async () => {
   // Create a new request context
@@ -48,31 +50,20 @@ test('Sample POST API validation @LAMDA', async () => {
     // Create a new request context
     const requestContext = await request.newContext();
 
+    const user = new User()
+    .setId(9)
+    .setEmail("tobi.funny@reqres.in")
+    .setFirstName("Toby")
+    .setLastName("Funny")
+    .setAvatar("https://reqres.in/img/faces/9-image.jpg");
+
     const id= 12;
   
     // Send POST request
-    const response = await requestContext.post(
-      'https://reqres.in/api/users', {
-        headers: {
-          'Accept': 'application/json, text/javascript, */*; q=0.01',
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        },
-        data: {
-            "id": id,
-            "email": "tobi.funny@reqres.in",
-            "first_name": "Toby",
-            "last_name": "Funny",
-            "avatar": "https://reqres.in/img/faces/9-image.jpg"
-        },
-      }
-    );
-  
-    // Assert the response status code
-    expect(response.status()).toBe(201);
-  
-    // Parse and validate the response body
-    const responseBody = await response.json();
-  
+    // Call the API method to create a user
+  const responseBody = await userApi.createUser(user);
+      
+  console.log(responseBody.createdAt);
     expect(responseBody.createdAt).toBeDefined();
     expect(responseBody.createdAt).not.toBeNull();
 
@@ -84,15 +75,15 @@ test('Sample POST API validation @LAMDA', async () => {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           },
         }
-      );
+    );
     
-      // Assert the response status code
-      expect(responseGet.status()).toBe(200); 
+    // Assert the response status code
+    expect(responseGet.status()).toBe(200); 
     
-      // Parse and validate the response body
-      const responseBodyGet = await responseGet.json();
+    // Parse and validate the response body
+    const responseBodyGet = await responseGet.json();
 
-      expect(responseBodyGet.data.id).toBe(id);
+    expect(responseBodyGet.data.id).toBe(id);
 
     // Close the request context
     await requestContext.dispose();
