@@ -26,4 +26,14 @@ test('Login and go to user profile', async ({ page }) => {
     await expect(page).toHaveURL('https://example.com/user/testUser');
   });
 
+
+  we can also perform tasks like the below statements in a single call
+
+  await ai(`
+  Log in with username admin and password admin123.
+  Navigate to the dashboard.
+  Verify the welcome message is visible.
+`);
+
+
   */

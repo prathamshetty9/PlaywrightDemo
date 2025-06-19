@@ -20,7 +20,7 @@ test.beforeEach(
 });
 
 
-test.only("To verify Simple Order Journey. @LAMDA", async ({
+test("To verify Simple Order Journey. @LAMDA", async ({
   homePage,
   productDescriptionPage,
   cartPage,

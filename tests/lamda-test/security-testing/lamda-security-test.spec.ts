@@ -21,7 +21,6 @@ test("checks for XSS vulnerability. @LAMDA", async ({
 
     const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 
-    // Browser Context 1 - Having their own Session , Like running in incognito mode and having its own cookies , storage 
     const browserContext: BrowserContext = await browser.newContext();
     const page:Page = await browserContext.newPage();
 
@@ -64,7 +63,6 @@ test("SQL Injection Application. @LAMDA", async () => {
 
   const browser:Browser = await chromium.launch({headless : false, channel: 'chrome'});
 
-  // Browser Context 1 - Having their own Session , Like running in incognito mode and having its own cookies , storage 
   const browserContext: BrowserContext = await browser.newContext();
   const page:Page = await browserContext.newPage();
 
