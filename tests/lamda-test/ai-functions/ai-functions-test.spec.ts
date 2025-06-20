@@ -3,11 +3,12 @@ import { ai } from '@zerostep/playwright';
 
 const username = 'testingplaywright@abc.com';
 const password = 'Test@1234';
+const profileURL = 'https://ecommerce-playground.lambdatest.io/index.php?route=account/account'
 
 test('Login and navigate to user profile', async ({ page }) => {
   await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
   await ai(`Log in with username ${username} and password ${password}`, { page, test });
-  await ai('Navigate to the user profile', { page, test });
+  await ai(`Navigate to the user profile without clicking on any links and only verify the url to be ${profileURL}`, { page, test });
 });
 
 
